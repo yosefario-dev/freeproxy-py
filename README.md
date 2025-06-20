@@ -21,21 +21,25 @@ response = proxly.get("https://example.com")
 print(response.text)
 
 # Session-based
-proxy = proxly.FreeProxy()
+proxy = proxly.proxly()
 response = proxy.get("https://example.com/api")
 proxy.close()
 
 # Context manager
-with proxly.FreeProxy() as proxy:
+with proxly.proxly() as proxy:
     response = proxy.get("https://example.com")
+
+# Get available servers
+servers = proxly.get_server_list()
+print(f"Available servers: {len(servers)}")
 ```
 
 ## API
 
-### FreeProxy Class
+### proxly Class
 
 ```python
-FreeProxy(timeout=30, max_retries=3)
+proxly(timeout=30, max_retries=3)
 ```
 
 **Methods:**
@@ -57,6 +61,13 @@ proxly.put(url, **kwargs)
 proxly.delete(url, **kwargs)
 proxly.head(url, **kwargs)
 proxly.patch(url, **kwargs)
+```
+
+### Server Management
+
+```python
+proxly.get_server_list()     # Get list of available proxy servers
+proxly.clear_server_cache()  # Clear cached server list
 ```
 
 ## Error Handling
