@@ -1,6 +1,6 @@
-# freeproxy
+# proxly
 
-[![Python](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/)
+[![Python](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-GPL%20v3-blue.svg)](LICENSE)
 
 HTTP proxy library for Python using CroxyProxy infrastructure.
@@ -8,25 +8,25 @@ HTTP proxy library for Python using CroxyProxy infrastructure.
 ## Installation
 
 ```bash
-pip install curl-cffi
+pip install proxly
 ```
 
 ## Usage
 
 ```python
-import freeproxy
+import proxly
 
 # Simple usage
-response = freeproxy.get("https://example.com")
+response = proxly.get("https://example.com")
 print(response.text)
 
 # Session-based
-proxy = freeproxy.FreeProxy()
+proxy = proxly.FreeProxy()
 response = proxy.get("https://example.com/api")
 proxy.close()
 
 # Context manager
-with freeproxy.FreeProxy() as proxy:
+with proxly.FreeProxy() as proxy:
     response = proxy.get("https://example.com")
 ```
 
@@ -51,26 +51,26 @@ FreeProxy(timeout=30, max_retries=3)
 ### Convenience Functions
 
 ```python
-freeproxy.get(url, **kwargs)
-freeproxy.post(url, **kwargs)
-freeproxy.put(url, **kwargs)
-freeproxy.delete(url, **kwargs)
-freeproxy.head(url, **kwargs)
-freeproxy.patch(url, **kwargs)
+proxly.get(url, **kwargs)
+proxly.post(url, **kwargs)
+proxly.put(url, **kwargs)
+proxly.delete(url, **kwargs)
+proxly.head(url, **kwargs)
+proxly.patch(url, **kwargs)
 ```
 
 ## Error Handling
 
 ```python
 try:
-    response = freeproxy.get("https://example.com")
-except freeproxy.ProxyError as e:
+    response = proxly.get("https://example.com")
+except proxly.ProxyError as e:
     print(f"Proxy error: {e}")
 ```
 
 ## Requirements
 
-- Python 3.7+
+- Python 3.9+
 - curl-cffi
 
 ## License
