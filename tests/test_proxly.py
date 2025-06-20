@@ -1,23 +1,23 @@
 import pytest
 import proxly
-from proxly import FreeProxy, ProxyError
+from proxly import proxly, ProxyError
 
 def test_proxly_import():
     assert proxly is not None
     
 def test_proxy_class_creation():
-    proxy = FreeProxy()
+    proxy = proxly()
     assert proxy is not None
     assert proxy.timeout == 30
     assert proxy.max_retries == 3
 
 def test_proxy_class_custom_params():
-    proxy = FreeProxy(timeout=10, max_retries=5)
+    proxy = proxly(timeout=10, max_retries=5)
     assert proxy.timeout == 10
     assert proxy.max_retries == 5
 
 def test_context_manager():
-    with FreeProxy() as proxy:
+    with proxly() as proxy:
         assert proxy is not None
 
 def test_global_functions_exist():
