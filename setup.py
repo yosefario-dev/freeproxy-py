@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="proxly",
-    version="0.1.2",
+    version="0.1.3",
     author="Yosefario Dev",
     author_email="github@yosefario.me",
     description="HTTP proxy library for Python using CroxyProxy infrastructure",
