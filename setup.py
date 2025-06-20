@@ -12,7 +12,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/yosefario-dev/freeproxy",
-    py_modules=["freeproxy"],
+    py_modules=["proxly"],
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
